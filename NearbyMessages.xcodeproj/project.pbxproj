@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1287A5281F8664C50011E8FD /* secret.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1287A5271F8664C50011E8FD /* secret.plist */; };
 		12C714D41F790421007E9A98 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C714D31F790421007E9A98 /* AppDelegate.swift */; };
 		12C714D61F790421007E9A98 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C714D51F790421007E9A98 /* ViewController.swift */; };
 		12C714D91F790421007E9A98 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12C714D71F790421007E9A98 /* Main.storyboard */; };
@@ -36,6 +37,8 @@
 
 /* Begin PBXFileReference section */
 		070012C3AAD210C661B51A41 /* Pods-NearbyMessages.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NearbyMessages.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NearbyMessages/Pods-NearbyMessages.debug.xcconfig"; sourceTree = "<group>"; };
+		1287A5241F8660290011E8FD /* NearbyMessages.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NearbyMessages.h; sourceTree = "<group>"; };
+		1287A5271F8664C50011E8FD /* secret.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = secret.plist; sourceTree = "<group>"; };
 		12C714D01F790421007E9A98 /* NearbyMessages.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NearbyMessages.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12C714D31F790421007E9A98 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		12C714D51F790421007E9A98 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +93,8 @@
 		12C714C71F790421007E9A98 = {
 			isa = PBXGroup;
 			children = (
+				1287A5271F8664C50011E8FD /* secret.plist */,
+				1287A5241F8660290011E8FD /* NearbyMessages.h */,
 				12C714D21F790421007E9A98 /* NearbyMessages */,
 				12C714E71F790421007E9A98 /* NearbyMessagesTests */,
 				12C714F21F790422007E9A98 /* NearbyMessagesUITests */,
@@ -259,6 +264,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1287A5281F8664C50011E8FD /* secret.plist in Resources */,
 				12C714DE1F790421007E9A98 /* LaunchScreen.storyboard in Resources */,
 				12C714DB1F790421007E9A98 /* Assets.xcassets in Resources */,
 				12C714D91F790421007E9A98 /* Main.storyboard in Resources */,
@@ -513,9 +519,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EV8M2ZR5L5;
 				INFOPLIST_FILE = NearbyMessages/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.freeportmetrics.NearbyMessages;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = NearbyMessages.h;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -529,9 +538,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EV8M2ZR5L5;
 				INFOPLIST_FILE = NearbyMessages/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.freeportmetrics.NearbyMessages;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = NearbyMessages.h;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

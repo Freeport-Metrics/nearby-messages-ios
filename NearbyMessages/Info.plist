@@ -39,5 +39,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>The microphone listens for anonymous tokens from nearby devices.</string>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>An anonymous token is advertised via Bluetooth to discover nearby devices.</string>
 </dict>
 </plist>
