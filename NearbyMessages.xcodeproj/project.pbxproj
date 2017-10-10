@@ -15,6 +15,7 @@
 		12C714DE1F790421007E9A98 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12C714DC1F790421007E9A98 /* LaunchScreen.storyboard */; };
 		12C714E91F790421007E9A98 /* NearbyMessagesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C714E81F790421007E9A98 /* NearbyMessagesTests.swift */; };
 		12C714F41F790422007E9A98 /* NearbyMessagesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C714F31F790422007E9A98 /* NearbyMessagesUITests.swift */; };
+		CD73A3EC1F8C067300EB9586 /* String+UTF8.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD73A3EB1F8C067300EB9586 /* String+UTF8.swift */; };
 		DE0D4E2ED850A3D59190A171 /* libPods-NearbyMessages.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E765874E67D842CA7B935FF /* libPods-NearbyMessages.a */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,7 @@
 		12C714F51F790422007E9A98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73E996187760E1DBC0632DEB /* Pods-NearbyMessages.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NearbyMessages.release.xcconfig"; path = "Pods/Target Support Files/Pods-NearbyMessages/Pods-NearbyMessages.release.xcconfig"; sourceTree = "<group>"; };
 		7E765874E67D842CA7B935FF /* libPods-NearbyMessages.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NearbyMessages.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD73A3EB1F8C067300EB9586 /* String+UTF8.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+UTF8.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,9 +121,10 @@
 			children = (
 				12C714D31F790421007E9A98 /* AppDelegate.swift */,
 				12C714D51F790421007E9A98 /* ViewController.swift */,
+				CD73A3EB1F8C067300EB9586 /* String+UTF8.swift */,
+				12C714DC1F790421007E9A98 /* LaunchScreen.storyboard */,
 				12C714D71F790421007E9A98 /* Main.storyboard */,
 				12C714DA1F790421007E9A98 /* Assets.xcassets */,
-				12C714DC1F790421007E9A98 /* LaunchScreen.storyboard */,
 				12C714DF1F790421007E9A98 /* Info.plist */,
 			);
 			path = NearbyMessages;
@@ -350,6 +353,7 @@
 			files = (
 				12C714D61F790421007E9A98 /* ViewController.swift in Sources */,
 				12C714D41F790421007E9A98 /* AppDelegate.swift in Sources */,
+				CD73A3EC1F8C067300EB9586 /* String+UTF8.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,7 +521,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = EV8M2ZR5L5;
+				DEVELOPMENT_TEAM = LUV5M8R3MG;
 				INFOPLIST_FILE = NearbyMessages/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -536,7 +540,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = EV8M2ZR5L5;
+				DEVELOPMENT_TEAM = LUV5M8R3MG;
 				INFOPLIST_FILE = NearbyMessages/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

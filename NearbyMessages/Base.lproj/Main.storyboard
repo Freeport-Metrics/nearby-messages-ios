@@ -18,59 +18,64 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not Publishing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cYT-92-mp3">
-                                <rect key="frame" x="16" y="20" width="112" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not publishing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cYT-92-mp3">
+                                <rect key="frame" x="16" y="33.5" width="111" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Include beacons" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0cQ-8h-7it">
-                                <rect key="frame" x="16" y="191" width="126" height="21"/>
+                                <rect key="frame" x="16" y="204.5" width="126" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B0I-zs-RJn">
-                                <rect key="frame" x="311" y="6.5" width="48" height="48"/>
+                                <rect key="frame" x="311" y="20" width="48" height="48"/>
                                 <state key="normal" image="ic_start"/>
                                 <connections>
                                     <action selector="onPublishButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iuY-WH-MJn"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Em-Ph-RZp">
-                                <rect key="frame" x="311" y="63" width="48" height="48"/>
+                                <rect key="frame" x="311" y="76.5" width="48" height="48"/>
                                 <state key="normal" image="ic_start"/>
                                 <connections>
                                     <action selector="onSubscribeButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nJs-W8-6rr"/>
                                 </connections>
                             </button>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gbQ-1y-A8X">
-                                <rect key="frame" x="310.5" y="129" width="51" height="31"/>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="gbQ-1y-A8X">
+                                <rect key="frame" x="310.5" y="142.5" width="51" height="31"/>
+                                <connections>
+                                    <action selector="earshotValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="9RR-ew-nUZ"/>
+                                </connections>
                             </switch>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fYU-ms-bTm">
-                                <rect key="frame" x="310.5" y="186" width="51" height="31"/>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fYU-ms-bTm">
+                                <rect key="frame" x="310.5" y="199.5" width="51" height="31"/>
+                                <connections>
+                                    <action selector="includeBeaconsValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="QZ8-HT-ODV"/>
+                                </connections>
                             </switch>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SxO-qf-cpd">
-                                <rect key="frame" x="16" y="241" width="343" height="30"/>
+                                <rect key="frame" x="16" y="254.5" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qFr-Ed-mrE">
-                                <rect key="frame" x="16" y="295" width="343" height="356"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qFr-Ed-mrE">
+                                <rect key="frame" x="16" y="308.5" width="343" height="342.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Earshot distance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KC3-dh-4uv">
-                                <rect key="frame" x="16" y="134" width="128" height="21"/>
+                                <rect key="frame" x="16" y="147.5" width="128" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not Subscribed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jP5-tX-oaW">
-                                <rect key="frame" x="16" y="77" width="120" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not subscribed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jP5-tX-oaW">
+                                <rect key="frame" x="16" y="90.5" width="118" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -81,6 +86,7 @@
                             <constraint firstItem="SxO-qf-cpd" firstAttribute="trailing" secondItem="fYU-ms-bTm" secondAttribute="trailing" id="22s-TK-TOz"/>
                             <constraint firstItem="3Em-Ph-RZp" firstAttribute="centerY" secondItem="jP5-tX-oaW" secondAttribute="centerY" id="40Q-1F-4aY"/>
                             <constraint firstItem="gbQ-1y-A8X" firstAttribute="centerY" secondItem="KC3-dh-4uv" secondAttribute="centerY" id="7kf-eO-3RE"/>
+                            <constraint firstItem="B0I-zs-RJn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="D6x-qV-iIa"/>
                             <constraint firstItem="fYU-ms-bTm" firstAttribute="centerY" secondItem="0cQ-8h-7it" secondAttribute="centerY" id="G13-cL-otn"/>
                             <constraint firstItem="3Em-Ph-RZp" firstAttribute="centerX" secondItem="B0I-zs-RJn" secondAttribute="centerX" id="GGM-lE-g44"/>
                             <constraint firstItem="cYT-92-mp3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="IAi-mp-Eye"/>
@@ -95,7 +101,6 @@
                             <constraint firstItem="0cQ-8h-7it" firstAttribute="top" secondItem="KC3-dh-4uv" secondAttribute="bottom" constant="36" id="b8h-X0-Ogd"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="B0I-zs-RJn" secondAttribute="trailing" constant="16" id="ddg-SP-gfG"/>
                             <constraint firstItem="SxO-qf-cpd" firstAttribute="leading" secondItem="0cQ-8h-7it" secondAttribute="leading" id="eWb-t1-bMP"/>
-                            <constraint firstItem="cYT-92-mp3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="f3B-zY-Wrd"/>
                             <constraint firstItem="fYU-ms-bTm" firstAttribute="centerX" secondItem="gbQ-1y-A8X" secondAttribute="centerX" id="h1L-ii-o0H"/>
                             <constraint firstItem="jP5-tX-oaW" firstAttribute="top" secondItem="cYT-92-mp3" secondAttribute="bottom" constant="36" id="hAq-y0-v6n"/>
                             <constraint firstItem="qFr-Ed-mrE" firstAttribute="leading" secondItem="SxO-qf-cpd" secondAttribute="leading" id="jSz-kf-A3v"/>
@@ -105,6 +110,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="beaconsSwitch" destination="fYU-ms-bTm" id="qsd-oh-1ST"/>
+                        <outlet property="earshotSwitch" destination="gbQ-1y-A8X" id="U6m-Vq-B2G"/>
+                        <outlet property="logTextView" destination="qFr-Ed-mrE" id="gFo-lj-VF0"/>
+                        <outlet property="messageTextField" destination="SxO-qf-cpd" id="hNt-Y6-qgV"/>
                         <outlet property="publishIcon" destination="B0I-zs-RJn" id="nUd-RA-exr"/>
                         <outlet property="publishLabel" destination="cYT-92-mp3" id="BaQ-JI-8Vs"/>
                         <outlet property="subscribeButton" destination="3Em-Ph-RZp" id="eTL-XP-AzL"/>
