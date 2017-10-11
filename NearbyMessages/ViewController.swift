@@ -10,28 +10,30 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var gnsManager :GNSMessageManager?
-    var subscribtion : GNSSubscription?
-    var nearbyPublication : GNSPublication?
+    private var gnsManager :GNSMessageManager?
+    private var subscribtion : GNSSubscription?
+    private var nearbyPublication : GNSPublication?
     
     private let publishingString : String = "Publishing"
     private let notPublishingString = "Not publishing"
     private let subscribedString = "Subscribed"
     private let notSubscribedString = "Not subscribed"
     
-    @IBOutlet weak var publishLabel: UILabel!
-    @IBOutlet weak var publishIcon: UIButton!
+    @IBOutlet private weak var publishLabel: UILabel!
+    @IBOutlet private weak var publishIcon: UIButton!
     
-    @IBOutlet weak var subscribeLabel: UILabel!
-    @IBOutlet weak var subscribeButton: UIButton!
+    @IBOutlet private weak var subscribeLabel: UILabel!
+    @IBOutlet private weak var subscribeButton: UIButton!
     
-    @IBOutlet weak var earshotSwitch: UISwitch!
-    @IBOutlet weak var beaconsSwitch: UISwitch!
+    @IBOutlet private weak var earshotSwitch: UISwitch!
+    @IBOutlet private weak var beaconsSwitch: UISwitch!
     
-    @IBOutlet weak var messageTextField: UITextField!
-    @IBOutlet weak var logTextView: UITextView!
+    @IBOutlet private weak var messageTextField: UITextField!
+    @IBOutlet private weak var logTextView: UITextView!
     
-    var isPublishing = false {
+    private var earshotDistance = false
+    private var includeBeacons = false
+    private var isPublishing = false {
         didSet {
             if(isPublishing) {
                 publishLabel.text = publishingString
@@ -42,8 +44,7 @@ class ViewController: UIViewController {
             }
         }
     }
-    
-    var isSubscribed = false {
+    private var isSubscribed = false {
         didSet {
             switchState(isSubscribed)
             if(isSubscribed) {
@@ -55,16 +56,11 @@ class ViewController: UIViewController {
             }
         }
     }
-    
-    var earshotDistance = false
-    
-    var includeBeacons = false
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.messageTextField.delegate = self
-        
         messageTextField.text = UIDevice.current.name
     }
     
@@ -75,7 +71,7 @@ class ViewController: UIViewController {
         
         if gnsManager != nil {
             let nearbyPermission = GNSPermission(changedHandler: { (granted: Bool) in
-                self.updateLog("Permission \(granted)")
+                self.updateLog("Permission: \(granted)")
             })
         } else {
             let alert = UIAlertController.init(title: "Nearby Messages", message: "API key is not set", preferredStyle: .alert)
@@ -86,7 +82,13 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func onPublishButtonClicked(_ sender: UIButton) {
+    @IBAction private func onPublishButtonClicked(_ sender: UIButton) {
+        if isPublishing {
+            nearbyPublication = nil
+            updateLog("Unpublishing")
+            return
+        }
+        
         guard let gnsManager = gnsManager else {
             updateLog("Error while publishing")
             return
@@ -114,18 +116,23 @@ class ViewController: UIViewController {
         })
     }
     
-    @IBAction func onSubscribeButtonClicked(_ sender: UIButton) {
+    @IBAction private func onSubscribeButtonClicked(_ sender: UIButton) {
+        if isSubscribed {
+            subscribtion = nil
+            updateLog("Unsubscribing")
+            return
+        }
+        
         guard let gnsManager = gnsManager else {
             self.updateLog("Error while subscribing")
             return
         }
         
         subscribtion = gnsManager.subscription(messageFoundHandler: { (message: GNSMessage?) in
-            
             if let message = message, !message.content.isEmpty {
                 self.updateLog("Message found: \(String.utf8encoded(data: message.content)!) \(message.messageNamespace!) \(message.type!)")
             }
-        }, messageLostHandler: { (message: GNSMessage?) in
+        },messageLostHandler: { (message: GNSMessage?) in
             guard let message = message else { return }
             
             self.updateLog("Message lost: \(String.utf8encoded(data: message.content)!)")
@@ -138,21 +145,22 @@ class ViewController: UIViewController {
             
             if self.includeBeacons {
                 params.deviceTypesToDiscover = .bleBeacon
+//                params.type = ""
+//                params.messageNamespace = ""
+                
                 params.beaconStrategy = GNSBeaconStrategy(paramsBlock: { (strategyParam) in
                     strategyParam?.includeIBeacons = true
-                    strategyParam?.lowPowerPreferred = true
+                    strategyParam?.lowPowerPreferred = false
                 })
             }
         })
-        
     }
     
-    @IBAction func earshotValueChanged(_ sender: UISwitch) {
+    @IBAction private func earshotValueChanged(_ sender: UISwitch) {
         includeBeacons = sender.isOn
     }
     
-    
-    @IBAction func includeBeaconsValueChanged(_ sender: UISwitch) {
+    @IBAction private func includeBeaconsValueChanged(_ sender: UISwitch) {
         if sender.isOn {
             includeBeacons = true
         }
@@ -176,7 +184,6 @@ class ViewController: UIViewController {
                             self.updateLog("Bluetooth permission error")
                         }
                         params.shouldShowBluetoothPowerAlert = true
-                        
                 })
             }
         }
