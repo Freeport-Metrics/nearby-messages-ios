@@ -56,7 +56,7 @@ class ViewController: UIViewController {
             }
         }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -132,7 +132,7 @@ class ViewController: UIViewController {
             if let message = message, !message.content.isEmpty {
                 self.updateLog("Message found: \(String.utf8encoded(data: message.content)!) \(message.messageNamespace!) \(message.type!)")
             }
-        },messageLostHandler: { (message: GNSMessage?) in
+        }, messageLostHandler: { (message: GNSMessage?) in
             guard let message = message else { return }
             
             self.updateLog("Message lost: \(String.utf8encoded(data: message.content)!)")
@@ -143,10 +143,14 @@ class ViewController: UIViewController {
                 self.isSubscribed = status.rawValue == GNSOperationStatus.active.rawValue
             }
             
+            params.strategy = GNSStrategy(paramsBlock: { (strategyParams) in
+                strategyParams?.discoveryMediums = self.earshotDistance ? .audio : .BLE
+            })
+            
             if self.includeBeacons {
                 params.deviceTypesToDiscover = .bleBeacon
-//                params.type = ""
-//                params.messageNamespace = ""
+                //                params.type = ""
+                //                params.messageNamespace = ""
                 
                 params.beaconStrategy = GNSBeaconStrategy(paramsBlock: { (strategyParam) in
                     strategyParam?.includeIBeacons = true
@@ -169,6 +173,11 @@ class ViewController: UIViewController {
     private func loadGNSMessageManager() -> GNSMessageManager? {
         if let path = Bundle.main.path(forResource: "secret", ofType: "plist") {
             if let dict = NSDictionary(contentsOfFile: path) as? [String: String] {
+                
+                if dict["API_KEY"]!.isEmpty {
+                    return nil
+                }
+                
                 GNSMessageManager.setDebugLoggingEnabled(true)
                 return GNSMessageManager(
                     apiKey: dict["API_KEY"],
